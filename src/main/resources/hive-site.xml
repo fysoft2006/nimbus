@@ -15,7 +15,7 @@
 
 	<property>
 		<name>hive.hiveserver.kerberos.principal</name>
-		<value>hadoop/test84.hadoop@DIANPING.COM</value>
+		<value>hadoop/cosmos01.beta@DIANPING.COM</value>
 	</property>
 
 	<property>

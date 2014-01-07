@@ -33,7 +33,7 @@ import com.google.common.cache.RemovalNotification;
 public class HiveJdbcClient {
 	private static final Log logger = LogFactory.getLog(HiveJdbcClient.class);
 
-	private static final String HIVE_JDBC_DRIVER_CLASS = "org.apache.hadoop.hive.jdbc.HiveDriver";
+	private static final String HIVE_JDBC_DRIVER_CLASS = "org.apache.hive.jdbc.HiveDriver";
 	
 	private static final int USER_SHOW_ROW_MAXIMUM_COUNT = 500;
 	private static final char FIELD_DELIMITED = '\t';
@@ -236,26 +236,11 @@ public class HiveJdbcClient {
 		Statement stmt = null;
 		try {
 			stmt = conn.createStatement();
-			stmt.executeQuery("use " + database);
+			stmt.execute("use " + database);
 			stmt.setFetchSize(Integer.MAX_VALUE);
 			ResultSet rs = stmt.executeQuery("explain extended " + hql);
-			if (rs.next()) {
-				Object value = ReflectUtils.getFieldValue(rs, "fetchedRows");
-				List<String> fetchedRows = (List<String>) value;
-				if (fetchedRows == null || fetchedRows.size() == 0) {
-					sb.append("something wrong with hive query");
-				} else {
-					int fetchedRowsSize = fetchedRows.size();
-					for (int i = 0; i < fetchedRowsSize; i++) {
-						if (i < fetchedRowsSize - 1) {
-							sb.append(fetchedRows.get(i)).append(LINE_DELIMITED);
-						}else {
-							sb.append(fetchedRows.get(i));
-						}
-					}
-				}
-			} else {
-				logger.error("execute 'explain extended hql' failed, hql:" + hql);
+			while(rs.next()) {
+				sb.append(rs.getString(1)).append(LINE_DELIMITED);
 			}
 			rs.close();
 			stmt.close();
@@ -286,7 +271,7 @@ public class HiveJdbcClient {
 		Statement stmt = null;
 		try {
 			stmt = conn.createStatement();
-			stmt.executeQuery("use " + database);
+			stmt.execute("use " + database);
 			ResultSet rs = stmt.executeQuery(hql);
 			ResultSetMetaData rsm = rs.getMetaData();
 			int columnCount = rsm.getColumnCount();
