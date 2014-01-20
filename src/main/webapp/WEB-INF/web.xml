@@ -15,7 +15,7 @@
 	<context-param>
 		<!-- max size of the upload request -->
 		<param-name>maxSize</param-name>
-		<param-value>31457280</param-value>
+		<param-value>104857600</param-value>
 	</context-param>
 	<context-param>
 		<!-- Useful in development mode to slow down the uploads in fast networks. 
