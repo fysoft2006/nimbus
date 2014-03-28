@@ -475,8 +475,13 @@ public class HiveQuery extends LoginComponent implements EntryPoint {
 	}
 
 	private void constructEngineListBox() {
-		engineListBox.addItem("hive");
-		engineListBox.addItem("shark");
+		if (Constants.SHARK_USERS.contains(getUsername())) {
+			engineListBox.insertItem(QueryEngine.SHARK.getName(), 0);
+			engineListBox.insertItem(QueryEngine.HIVE.getName(), 1);
+		} else {
+			engineListBox.insertItem(QueryEngine.HIVE.getName(), 0);
+			engineListBox.insertItem(QueryEngine.SHARK.getName(), 1);
+		}
 	}
 
 	private void constructSampleData() {
