@@ -20,13 +20,15 @@
 		<value>true</value>
 	</property>
 
+
 	<property>
 		<name>fs.default.name</name>
-		<value>hdfs://cosmos03.beta/</value>
+		<value>hdfs://10.2.6.102/</value>
 		<final>true</final>
 	</property>
 	<property>
 		<name>dfs.namenode.kerberos.principal</name>
-		<value>hadoop/cosmos03.beta@DIANPING.COM</value>
+		<value>hadoop/10.2.6.102@DIANPING.COM</value>
 	</property>
+
 </configuration>

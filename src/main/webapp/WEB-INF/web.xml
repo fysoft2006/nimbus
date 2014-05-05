@@ -27,7 +27,7 @@
 
 	<context-param>
 		<param-name>polestar-host</param-name>
-		<param-value>http://192.168.213.245:8080</param-value>
+		<param-value>http://10.1.1.162:8070</param-value>
 	</context-param>
 
 	<listener>

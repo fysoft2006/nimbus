@@ -43,7 +43,7 @@
 		class="com.dianping.nimbus.server.queryengine.jdbc.JdbcQueryEngine" />
 	<bean id="RestQueryEngine"
 		class="com.dianping.nimbus.server.queryengine.rest.RestQueryEngine">
-		<property name="host" value="http://192.168.213.245:8080" />
+		<property name="host" value="http://10.1.1.162:8070" />
 	</bean>
 
 	<bean id="MailService" class="com.dianping.nimbus.server.mail.MailService">
