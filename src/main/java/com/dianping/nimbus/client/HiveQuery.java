@@ -475,13 +475,13 @@ public class HiveQuery extends LoginComponent implements EntryPoint {
 	}
 
 	private void constructEngineListBox() {
-		if (Constants.SHARK_USERS.contains(getUsername())) {
-			engineListBox.insertItem(QueryEngine.SHARK.getName(), 0);
-			engineListBox.insertItem(QueryEngine.HIVE.getName(), 1);
-		} else {
-			engineListBox.insertItem(QueryEngine.HIVE.getName(), 0);
-			engineListBox.insertItem(QueryEngine.SHARK.getName(), 1);
-		}
+//		if (Constants.SHARK_BANNED_USERS.contains(getUsername())) {
+//			engineListBox.insertItem(QueryEngine.HIVE.getName(), 0);
+//			engineListBox.insertItem(QueryEngine.SHARK.getName(), 1);
+//		} else {
+		engineListBox.insertItem(QueryEngine.SHARK.getName(), 0);
+	    engineListBox.insertItem(QueryEngine.HIVE.getName(), 1);
+//		}
 	}
 
 	private void constructSampleData() {
