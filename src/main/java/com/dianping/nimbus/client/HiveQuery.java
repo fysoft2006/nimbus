@@ -72,7 +72,7 @@ public class HiveQuery extends LoginComponent implements EntryPoint {
 	@UiField
 	ListBox queryFavoriteListBox;
 	@UiField(provided = true)
-	AutoCompleteTextArea hqlTextArea;
+	TextArea hqlTextArea;
 	@UiField
 	TextArea progressTextArea;
 	@UiField
@@ -442,9 +442,9 @@ public class HiveQuery extends LoginComponent implements EntryPoint {
 	}
 
 	private void initialize() {
-		hqlTextArea = new AutoCompleteTextArea();
-		hqlTextArea.setCompletionItems(new SimpleAutoCompletionItems(
-				HiveKeyword.getKeywordsArray()));
+		hqlTextArea = new TextArea();
+//		hqlTextArea.setCompletionItems(new SimpleAutoCompletionItems(
+//				HiveKeyword.getKeywordsArray()));
 
 		cellTable = new CellTable<String[]>(50,
 				GWT.<TableResources> create(TableResources.class));
